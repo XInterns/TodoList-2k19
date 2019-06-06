@@ -1,0 +1,55 @@
+.header {
+    background-color: #33f4ea;
+    padding: 20px 20px;
+    color:purple ;
+    text-align: center;
+    font-size: 60px;
+   
+  }
+  
+  /* Clear floats after the header */
+  .todo-list{
+      list-style-type: none;
+  }
+  .arrow{
+      display:flex;
+      justify-content: flex-start;
+  }
+.todo-list li.arrow label{
+    text-decoration:line-through;
+}
+
+  .todo-container {
+      display:flex;
+      background-color: azure;
+       border: none;
+    border-radius: 0;
+    width: 60%;
+    padding: 10px;
+    flex-direction: column;
+    font-size: 16px;
+    margin:50px 200px;
+  }
+  input{
+      display: block;
+  }
+  body{
+    background-color: #33f4ea;
+
+  }
+  .buttons{
+      display:grid;
+      grid-template-columns:20% 60% 20%;
+  }
+  .filter button.selected {
+    border-color: rgba(175, 47, 47, 0.2);
+  .footer {
+        display:flex;
+        color: #777;
+        padding: 10px 10px;
+        height: 20px;
+        text-align: center;
+        justify-content: space-between;
+        border-top: 1px solid #e6e6e6;
+        line-height: 20px;
+    }
