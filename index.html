@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>todos</title>
+	<link rel="stylesheet" type="text/css" href="src/css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>todos of baba yaga</h1>
+		</div>
+		<div class="inputContainer">
+			<input id="taskInput" type="text" placeholder="Add a task" maxlength="50" />
+		</div>
+		<div class="listWrapper">
+			<ul class="taskList">
+			</ul>
+		</div>
+		<div class="deleteBtn" >
+			<button class="deleteCompletedBtn" onclick="deleteCompleted()">Delete Completed</button>
+			<button class="clearTasksBtn" onclick="deleteAll()">Clear</button>
+		</div>
+	</div>
+<script src="src/js/todo.js"></script>
+</body>
+</html>
