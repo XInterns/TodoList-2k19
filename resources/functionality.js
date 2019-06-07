@@ -1,3 +1,5 @@
+const displaytodos = []
+
 const todoList = [
     {
         name: 'task1',
@@ -20,3 +22,15 @@ const todoList = [
         completed: false
     },
 ];
+
+const fetchtodos = (isCompleted) => {
+    if(showCompleted == undefined){
+        displaytodos = todoList;
+    }
+    else if(showCompleted===todoList.filter({completed})){
+        displaytodos = todoList;
+    }
+    else{
+        displaytodos = todoList;
+    }    
+}
