@@ -16,6 +16,15 @@ const refreshTodoList = (todo_array) => {
   const todosHTML = todo_array.map((todo) => createTodoListHTML(todo));
   document.getElementById('display-todos').innerHTML = todosHTML.join('');
 }
+
+
+const displayActiveQuant =(todo_array) =>{
+  var quant=0;
+  todo_array.forEach(({isCompleted}) => {if(!isCompleted){quant++;}
+  });
+  document.getElementById('display-active').innerText=`<strong>${quant}</strong> items left`;
+}
+
 const getTodos = (showCompleted) => {
   if (showCompleted == undefined) {
     displayTodos = todo_array;
@@ -26,3 +35,4 @@ const getTodos = (showCompleted) => {
   refreshTodoList(displayTodos)
 }
 
+displayActiveQuant();
