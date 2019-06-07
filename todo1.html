@@ -2,7 +2,7 @@
 
  <head>
  <meta charset = "UTF-8">
- <link rel = "stylesheet" type = "text/css" href = "todo1.css" />
+ <link rel = "stylesheet" type = "text/css" href = "assets/css/todo1.css" />
  <title> TO DO LIST</title>
   </head>
 
@@ -14,36 +14,33 @@
 		</div>
 		<div class="todo">
 
-		<ul class="todo-list">
+		<ul id = "tasklist" class="todo-list">
 			<li>
 				<input type="text" id="addnew" placeholder="What Needs to be Done.." /> 
 			</li>
-			<li class="done">
-				<input id="circlecheck" class="checkbox-round" type="checkbox"/> 
-				<label class="toggle"></label>
+			<li>
+				<input id="circlecheck" type="checkbox"/> 
 				Buy groceries
 			</li>
 			<li>
 				<input id="circlecheck" type="checkbox"/> 
-				<label class="toggle"></label>
 				Get a hair cut
 			</li>
 			<li>
 				<input id="circlecheck" type="checkbox"> 
-				<label class="toggle"></label>
-				Buy a pillow<br />
-			
+				Buy a pillow
 			</li>
 		</ul>
 		
 		<div class = "buttonflex">
-			 <button id="all" type="button">All</button> 
-			 <button id="active" type="button">Acitve</button> 
-			 <button id="completed" type="button">Completed</button> 
+			 <button onClick = "getList()" id="all" type="button">All</button> 
+			 <button onClick = "getList(true)" id="active" type="button">Acitve</button> 
+			 <button onClick = "getList(false)" id="completed" type="button">Completed</button> 
 			 <button id="deletecompleted" type="button">Delete Completed</button>
 		</div>
 	</div>
 </div>
+<script src = "assets/js/index.js"> </script>
 </body>
 
 </html>
