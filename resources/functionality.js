@@ -34,3 +34,15 @@ const fetchtodos = (isCompleted) => {
         displaytodos = todoList;
     }    
 }
+
+const createTodoFromTemplate = ({name, completed}) => {
+    return `<div class = ${completed ? "true" : "false"}> ${name} </div>`
+}
+
+const renderTodoList = (todoList) => {
+    const todosHTML = todoList.map((todo) => createTodoFromTemplate(todo));
+    document.getElementById('tasks').innerHTML = todosHTML.join('');
+
+}
+
+renderTodoList(todoList);
