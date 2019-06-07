@@ -22,7 +22,7 @@ const displayActiveQuant =(todo_array) =>{
   var quant=0;
   todo_array.forEach(({isCompleted}) => {if(!isCompleted){quant++;}
   });
-  document.getElementById('display-active').innerText=`<strong>${quant}</strong> items left`;
+  document.getElementById('display-active').innerHTML=`<strong>${quant}</strong> items left`;
 }
 
 const getTodos = (showCompleted) => {
@@ -32,7 +32,8 @@ const getTodos = (showCompleted) => {
   else {
     displayTodos = todo_array.filter(({ isCompleted }) => isCompleted === showCompleted);
   }
-  refreshTodoList(displayTodos)
+  refreshTodoList(displayTodos);
+  displayActiveQuant(todo_array);
 }
 
-displayActiveQuant();
+
