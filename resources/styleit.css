@@ -25,6 +25,7 @@ body{
 
 .search-container{
     display: flex;
+    /* flex-flow: row wrap;  ??*/
     border-bottom: 0.1em solid lightgray;
     height: 2.25em;
 }
@@ -52,6 +53,43 @@ body{
     flex-grow: 2;
 }
 
+/* todo-container */
+
+.todo-container{
+    padding: 0em;
+}
+
+/* ul class */
+.tasks{
+    list-style-type: none;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 0em;
+    margin: 0em;
+}
+
+ul li{
+    border-bottom: 0.01em solid lightgray;
+    list-style-position: inside;
+    margin-left: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    height: 2em;
+}
+
+.todo{
+    display: inline-block;
+    flex-grow: 2;
+    /* width: 16em;  responsiveness not observed ~ type of hard-code*/
+}
+
+/* cross button */
+.crossover{
+    flex-grow: 1;
+    align-self: flex-end;  
+}
+
 .taskboxstack{
     margin: auto;
     width: 30%;
@@ -59,22 +97,4 @@ body{
     border: 1px solid lightgrey;
     background-color: white;
     z-index: 0;
-}
-
-.tasks{
-    list-style-type: none;
-}
-
-ul li{
-    display: flex;
-    border-top: 0.01em solid lightgray;
-    border-bottom: 0.01em solid lightgray;
-    list-style-position: inside;
-    margin-left: 0%;
-    /* width: 100%; */
-}
-
-.crossover{
-    display: flex;
-    /* flex-grow:   */
 }
