@@ -1,9 +1,24 @@
-const displaytodos = []
+let displaytodos = [];
+
+
+const templates = {
+    todo: ({name, completed}) => `<div class='${completed ? 'true' : 'false'}'> ${name} </div>`
+}
+
+const renderElements = {
+    renderTodoList: (todoList) => {
+        const todosHTML = todoList.map((todo) => templates.todo(todo));
+        document.getElementById('tasks').innerHTML = todosHTML.join('');
+    },
+    renderItemsLeft: (itemsRemaining) => {
+        document.getElementById('items-remaining').innerText = `${itemsRemaining} items left`;
+    }
+}
 
 const todoList = [
     {
         name: 'task1',
-        completed: false
+        completed: true
     },
     {
         name: 'task2',
@@ -24,25 +39,15 @@ const todoList = [
 ];
 
 const fetchtodos = (isCompleted) => {
-    if(showCompleted == undefined){
+    if(isCompleted == undefined){
         displaytodos = todoList;
+    }else{
+        displaytodos = filterListOfTodos(isCompleted, todoList);
     }
-    else if(showCompleted===todoList.filter({completed})){
-        displaytodos = todoList;
-    }
-    else{
-        displaytodos = todoList;
-    }    
+    renderElements.renderTodoList(displaytodos);
+    renderElements.renderItemsLeft(countRemainingTasks(displaytodos));
 }
 
-const createTodoFromTemplate = ({name, completed}) => {
-    return `<div class = ${completed ? "true" : "false"}> ${name} </div>`
-}
+const filterListOfTodos = (isCompleted,todoList) => todoList.filter(({completed}) => completed === isCompleted);
 
-const renderTodoList = (todoList) => {
-    const todosHTML = todoList.map((todo) => createTodoFromTemplate(todo));
-    document.getElementById('tasks').innerHTML = todosHTML.join('');
-
-}
-
-renderTodoList(todoList);
+const countRemainingTasks = (todoList) => filterListOfTodos(false,todoList).length;

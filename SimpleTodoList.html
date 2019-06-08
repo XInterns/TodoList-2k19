@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>todo list</title>
+        <title>todo list</title>    
         <link rel="stylesheet" type="text/css" href="resources/styleit.css">
-
+        <link rel="stylesheet" href="resources/fontawesome-free-5.9.0-web/css/all.min.css">
     </head>
-    <body>
+    <body>  
         <div class="header">
            todos 
         </div>
         <div class="taskbox">
-            <div class="tasktext-container">
-                <span class="scroll-container">
-                    <input type="checkbox" name="scroll" value="scval">
-                </span>
-                <span class="textbox">
-                    <input type="text" name="tasktext" id="textin" placeholder="What needs to be done?">
-                </span>
+            <div class="search-container">
+                <div class="down-icon">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="textbox"> 
+                    <input type="text" class="tasktext" id="textin" placeholder="What needs to be done?">
+                </div>
             </div>
             <div class="todo-container">
                 <ul class="tasks" id="tasks">
@@ -46,12 +46,12 @@
             </div>    
             <div class="action-container">
                 <span class="counter">  
-                    <label for="counter">1 item left</label> 
+                    <label for="counter" id="items-remaining"></label> 
                 </span>
                 <span class="view">
-                    <input type="button" value="All" id="Show All" >
-                    <input type="button" value="Active" id="Show Active">
-                    <input type="button" value="Completed" id="Show Completed">
+                    <input type="button" onclick="fetchtodos()" value="All" id="Show All" >
+                    <input type="button" onclick="fetchtodos(false)" value="Active" id="Show Active">
+                    <input type="button" onclick="fetchtodos(true)" value="Completed" id="Show Completed">
                 </span>
                 <span class="action">  
                     <input type="button" value="Clear Completed" id="Remove Completed">
@@ -65,4 +65,8 @@
     </html> 
 
 
-       
+<!-- <details class="task-disclosure">
+                    <summary></summary> -->
+                <!-- <span class="scroll-container">
+                    <!-- <input type="checkbox" name="scroll" value="scval"> -->
+                <!-- </details> -->

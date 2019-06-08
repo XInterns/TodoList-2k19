@@ -13,11 +13,43 @@ body{
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 30%;
+    width: 28%;
     height: auto;
     border: 1px solid lightgrey;
     background-color: white;
-    z-index: 1;
+    z-index: auto;
+}
+
+
+/* search-container  */
+
+.search-container{
+    display: flex;
+    border-bottom: 0.1em solid lightgray;
+    height: 2.25em;
+}
+
+/* Arrow Icon  */
+
+.down-icon{
+    width: 5%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 0.6em;
+}
+
+ /* TextBox */
+.textbox {
+    display: flex;
+    width: 100%;
+    flex-grow: 2; 
+}  
+
+.tasktext{
+    width: 100%;
+    border: 0;
+    /* box-sizing: border-box; */
+    flex-grow: 2;
 }
 
 .taskboxstack{
@@ -27,14 +59,6 @@ body{
     border: 1px solid lightgrey;
     background-color: white;
     z-index: 0;
-}
-
-/* .tasktext-container  */
-
-.tasktext-container .textbox input[type="text"]{
-    border: 0;
-    width: 89%;
-
 }
 
 .tasks{
@@ -52,5 +76,5 @@ ul li{
 
 .crossover{
     display: flex;
-    flex-grow:  
+    /* flex-grow:   */
 }
