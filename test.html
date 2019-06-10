@@ -21,31 +21,31 @@
         </div>
         <div class="">
           <ul class="todo-list" id="todo-list-task">
-            <!-- <li>
+              <!-- <li>
                 <i onclick="checkboxtoggle(this)" class="far fa-check-circle"></i>
                 <input id="check-checkbox" class="checkbox-toggle"type="checkbox" hidden  >
                 <label></label>
                 <button class="remove"></button>
 
             </li>
-            <li class="completed">
+            <li>
                 <i onclick="checkboxtoggle(this)" class="far fa-check-circle"></i>
 
               <input id="check-checkbox" class="checkbox-toggle" type="checkbox" hidden >
-              <label>Go Shopping</label>
+              <label></label> 
               <button class="remove"></button>
 
-            </li> -->
+            </li>   -->
           </ul>
         </div>
         <div class="footer">
-          <span class="remaining-task"> x item(s) left</span>
+          <span id="remaining"class="remaining-task"> </span>
           <div class="select-filter">
             <button onclick='getTodos()' id="display-all-task" class="selected">All</button>
             <button onclick='getTodos(false)' id="display-active-task" class="active">Active</button>
             <button onclick='getTodos(true)' id="display-completed-task" class="completed">Completed</button>
           </div>
-          <button id="clear-completed" class="clear-completed-task">Clear Completed</button>
+          <button id="clear-completed" class="clear-completed-task" onclick='completeItem()'>Clear Completed</button>
         </div>
         
       </div>
