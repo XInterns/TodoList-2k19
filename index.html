@@ -4,49 +4,32 @@
     <section class="todoapp">
         <header class="header">
           <h1>todos</h1>
-          <input id="add-task" class="new-todo" placeholder="What needs to be done?" autofocus="">
-          <link rel="stylesheet" type="text/css" href="style.css">
+          <input class="new-todo" placeholder="What needs to be done?" autofocus="" onchange="addTask(event)">
+          <link rel="stylesheet" type="text/css" href="resources/styles/style.css">
         </header>
     <body>
         <section class="main" style="display: block;">
           <input id="toggle-all" class="toggle-all" type="checkbox">
           <label for="toggle-all">Mark all as complete</label>
           <ul id="display-todos" class="todo-list">
-            <!---
-            <li data-id="1531397960010" class="completed">
-              <div class="view">
-                <input class="toggle" type="checkbox" checked="">
-                <label>Learn The Elm Architecture ("TEA")</label>
-                <button class="destroy"></button>
-              </div>
-            </li>
-            <li data-id="1531397981603" class="">
-              <div class="view">
-                <input class="toggle" type="checkbox">
-                <label>Build TEA Todo List App</label>
-                <button class="destroy">
-                </button>
-              </div>
-            </li>
-            //-->
           </ul>
         </section>
         <footer class="footer" style="display: block;">
           <span id='display-active' class="todo-count"></span>
           <ul class="filters">
             <li>
-              <a onclick="getTodos()" href="#/" class="selected">All</a>
+              <a onclick="getTodos(null,event)" href="#/" id="disp-all" class="selected">All</a>
             </li>
             <li>
-              <a onclick="getTodos(false)" href="#/active" class="">Active</a>
+              <a onclick="getTodos(false,event)" href="#/active" id="disp-active" class="">Active</a>
             </li>
             <li>
-              <a onclick="getTodos(true)" href="#/completed">Completed</a>
+              <a onclick="getTodos(true,event)" href="#/completed" id="disp-complete" class="">Completed</a>
             </li>
           </ul>
-          <button class="clear-completed" style="display: block;">Clear completed</button>
+          <button onclick=removeTasks(event) class="clear-completed" style="display: block;">Clear completed</button>
         </footer>
-        <script type="text/javascript" src="function.js"></script>
+        <script type="text/javascript" src="resources/scripts/script.js"></script>
     </body>
     </section>
 </html>
