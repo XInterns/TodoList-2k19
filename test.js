@@ -55,25 +55,25 @@ const displayRemainingTask = (todoList) => {
 var input = document.querySelector("input[type = 'text']");
 var ul = document.querySelector("ul");
 
-// input.addEventListener("keypress", function (keyPressed) {
-//     if (keyPressed.which === 13) {
-//         var li = document.createElement("li");
-//         var spanElement = document.createElement("span");
-//         var icon = document.createElement("i");
+input.addEventListener("keypress", function (keyPressed) {
+    if (keyPressed.which === 13) {
+        var li = document.createElement("li");
+        var spanElement = document.createElement("span");
+        var icon = document.createElement("i");
 
-//         var newTodo = this.value;
-//         var newtask = { name: newTodo, isCompleted: false };
-//         todoList.push(newtask);
+        var newTodo = this.value;
+        var newtask = { name: newTodo, isCompleted: false };
+        todoList.push(newtask);
 
 
-//         icon.classList.add('fas', 'fa-circle');
-//         spanElement.append(icon);
-//         ul.appendChild(li).append(spanElement, newTodo);
-//         refreshTodosList(todoList);
+        icon.classList.add('fas', 'fa-circle');
+        spanElement.append(icon);
+        ul.appendChild(li).append(spanElement, newTodo);
+        refreshTodosList(todoList);
 
-//     }
+    }
 
-// });
+});
 
 
 
@@ -113,17 +113,18 @@ function removeCompletedTasks(index){
     refreshTodosList(todoList);
 }
 
-// function clearAllCompleted(){
+function clearAllCompleted(){
 
-// for (x of todoList) {
-//         var activeTaskList = todoList.filter(({ isCompleted }) => isCompleted === true);
-// // console.log(activeTaskList)
-//     // if(x.isCompleted === true) {
-//         todoList.filter( function (el) {
-//             return console.log(!activeTaskList.includes(el)) 
-//         })
-//     // }
-// }
+for (x of todoList) {
+        var activeTaskList = todoList.filter(({ isCompleted }) => isCompleted === true);
+// console.log(activeTaskList)
+    // if(x.isCompleted === true) {
+        todoList=todoList.filter( function (el) {
+            return activeTaskList.indexOf(el)<0;
+        });
+        refreshTodosList(todoList);
+    // }
+}
 
     // var i=todoList.length;
          
