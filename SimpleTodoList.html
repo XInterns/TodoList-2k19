@@ -19,16 +19,16 @@
                 </div>
             </div>
             <div class="todo-container">
-                <ul class="tasks" id="tasks101">
+                <ul class="tasks" id="tasks">
                     <li>
-                        <input type="checkbox" name="taskcheck" id="check00">
+                        <input type="checkbox" class="checktodo" name="taskcheck" id="check00">
                         <div class="todo">
                             task 2
                         </div>
                         <button class="cross" id="remove">X</button>   
                     </li>
                     <li>
-                        <input type="checkbox" name="taskcheck" id="check01">                     
+                        <input type="checkbox" class="checktodo" name="taskcheck" id="check01">                     
                         <div class="todo">
                             task 3
                         </div>
@@ -37,23 +37,22 @@
                 </ul>
             </div>    
             <div class="action-container">
-                <span class="counter">  
+                <div class="counter">  
                     <label for="counter" id="items-remaining"></label> 
-                </span>
-                <span class="view">
-                    <input type="button" onclick="fetchtodos()" value="All" id="Show All" >
-                    <input type="button" onclick="fetchtodos(false)" value="Active" id="Show Active">
-                    <input type="button" onclick="fetchtodos(true)" value="Completed" id="Show Completed">
-                </span>
-                <span class="action">  
-                    <input type="button" value="Clear Complete
-                    d" id="Remove Completed">
-                </span>
+                </div>
+                <div class="view">
+                    <button onclick="fetchtodos()" id="Show All">All</button>
+                    <button onclick="fetchtodos(false)" id="Show Active">Active</button>
+                    <button onclick="fetchtodos(true)" id="Show Completed">Completed</button>
+                </div>
+                <div class="action">  
+                    <button id="Remove Completed">Clear Completed</button> 
+                </div>
             </div>
         </div>
         <div class="taskboxstack"></div>
         <div class="taskboxstack"></div>
-        <script src="resources/functionality.js"></script> 
+        <!-- <script src="resources/functionality.js"></script>  -->
     </body>
     </html> 
 

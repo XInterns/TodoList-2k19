@@ -78,16 +78,26 @@ ul li{
     height: 2em;
 }
 
+/* checkbox disguised as tick */
+.checktodo{
+    border-radius: 5em;
+}
+
+/* task info */
 .todo{
     display: inline-block;
-    flex-grow: 2;
+    flex-grow: 5;
     /* width: 16em;  responsiveness not observed ~ type of hard-code*/
 }
 
 /* cross button */
-.crossover{
+.cross{
     flex-grow: 1;
-    align-self: flex-end;  
+}
+
+/* action-container */
+.action-container{
+    display: flex;
 }
 
 .taskboxstack{

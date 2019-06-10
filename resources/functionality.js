@@ -2,7 +2,7 @@ let displaytodos = [];
 
 
 const templates = {
-    todo: ({name, completed}) => `<div class='${completed ? 'true' : 'false'}'> ${name} </div>`
+    todo: ({name, completed}) => `<div class='${completed ? 'todo' : 'todo'}'> ${name} </div>`
 }
 
 const renderElements = {
@@ -51,3 +51,5 @@ const fetchtodos = (isCompleted) => {
 const filterListOfTodos = (isCompleted,todoList) => todoList.filter(({completed}) => completed === isCompleted);
 
 const countRemainingTasks = (todoList) => filterListOfTodos(false,todoList).length;
+
+fetchtodos();
