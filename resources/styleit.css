@@ -81,6 +81,7 @@ ul li{
 /* checkbox disguised as tick */
 .checktodo{
     border-radius: 5em;
+    display: none;
 }
 
 /* task info */
@@ -94,6 +95,17 @@ ul li{
 .cross{
     flex-grow: 1;
 }
+
+.todos{
+    border-bottom: 0.01em solid lightgray;
+    list-style-position: inside;
+    margin-left: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    height: 2em;
+}
+
 
 /* action-container */
 .action-container{

@@ -2,7 +2,15 @@ let displaytodos = [];
 
 
 const templates = {
-    todo: ({name, completed}) => `<div class='${completed ? 'todo' : 'todo'}'> ${name} </div>`
+    todo: ({name, completed}) => {
+        return `<li class="${completed ? 'todos' : 'todos'}">
+            <input type="checkbox" class="checktodo" name="taskcheck">
+            <i class="${completed ? 'far fa-check-circle' : 'fas fa-circle'}"></i>
+            <div class="todo">
+                ${name}
+            </div>
+        <button class="cross" id="remove">X</button>`
+ }
 }
 
 const renderElements = {
@@ -51,5 +59,7 @@ const fetchtodos = (isCompleted) => {
 const filterListOfTodos = (isCompleted,todoList) => todoList.filter(({completed}) => completed === isCompleted);
 
 const countRemainingTasks = (todoList) => filterListOfTodos(false,todoList).length;
+
+
 
 fetchtodos();
