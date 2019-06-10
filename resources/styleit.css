@@ -94,7 +94,18 @@ ul li{
 /* cross button */
 .cross{
     flex-grow: 1;
+    box-sizing: border-box;
+    width: 0.1em;
+    border-radius: 5em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
 }
+
+.cross:hover {
+    color: red;
+    border: none;
+  }
 
 .todos{
     border-bottom: 0.01em solid lightgray;
@@ -110,7 +121,44 @@ ul li{
 /* action-container */
 .action-container{
     display: flex;
+    padding: 0em;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
+
+.counter{
+     flex-grow: 1;
+     padding: 0em;
+     margin:0em;
+     font-size: small;
+}
+
+.view{
+    display: flex;
+    flex-grow: 2;
+    font-size: x-small;
+}
+
+#ShowAll{
+    flex-grow: 1;
+    padding: 0em;
+}
+
+#ShowActive{
+    flex-grow: 1;
+    padding: 0em;
+}
+
+#ShowCompleted{
+    flex-grow: 1;
+    padding: 0em;
+}
+
+.action{
+    font-size: x-small;
+    flex-grow: 1;
+}
+
 
 .taskboxstack{
     margin: auto;
