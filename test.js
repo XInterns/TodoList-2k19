@@ -1,6 +1,6 @@
 let displayTodos = [];
 
-var todoList = [
+const todoList = [
 
     { name: 'Wake Up', isCompleted: false }, { name: 'Get Ready for Office', isCompleted: false }, { name: 'Take Metro', isCompleted: false }, { name: 'Get Off Metro', isCompleted: false }, { name: 'Take Shuttle', isCompleted: false }, { name: 'Reach Office', isCompleted: false }];
 var x;
@@ -119,10 +119,18 @@ for (x of todoList) {
         var activeTaskList = todoList.filter(({ isCompleted }) => isCompleted === true);
 // console.log(activeTaskList)
     // if(x.isCompleted === true) {
-        todoList=todoList.filter( function (el) {
+        
+        var tobedisplayed=todoList.filter( function (el) {
             return activeTaskList.indexOf(el)<0;
         });
+        todoList.splice(0,todoList.length);
+        for(i=0;i<tobedisplayed.length;i++)
+        {
+            todoList[i]=tobedisplayed[i];
+        }
+
         refreshTodosList(todoList);
+        
     // }
 }
 
