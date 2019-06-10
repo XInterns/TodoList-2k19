@@ -1,0 +1,55 @@
+<html>
+ <head>
+   <title>
+    ToDoList
+   </title>
+   <link rel="stylesheet" type="text/css" href="src/css/index.css"/>
+   <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  
+ </head>
+
+<body>
+  <div class="ToDoListMain">
+    <div class="header">
+      todos
+    </div>
+    <div class="todo-container">
+      <div class="new-task">
+          <i class="fas fa-chevron-down"></i>
+          <input id="enter-task" class="enter-new-task"  type="text" placeholder="What needs to be done?" />
+      </div>
+      <div class="">
+        <ul class="todo-list" id="todo-list-task">
+            <!-- <li>
+              <i onclick="checkboxtoggle(this)" class="far fa-check-circle"></i>
+              <input id="check-checkbox" class="checkbox-toggle"type="checkbox" hidden  >
+              <label></label>
+              <button class="remove"></button>
+
+          </li>
+          <li>
+              <i onclick="checkboxtoggle(this)" class="far fa-check-circle"></i>
+
+            <input id="check-checkbox" class="checkbox-toggle" type="checkbox" hidden >
+            <label></label> 
+            <button class="remove"></button>
+
+          </li>   -->
+        </ul>
+      </div>
+      <div class="footer">
+        <span id="remaining"class="remaining-task"> </span>
+        <div class="select-filter">
+          <button onclick='getTodos()' id="display-all-task" class="selected">All</button>
+          <button onclick='getTodos(false)' id="display-active-task" class="active">Active</button>
+          <button onclick='getTodos(true)' id="display-completed-task" class="completed">Completed</button>
+        </div>
+        <button id="clear-completed" class="clear-completed-task" onclick='clearAllCompleted()'>Clear Completed</button>
+      </div>
+      
+    </div>
+  </div>
+  <script src="src/js/index.js"></script>
+</body>
+</html>
