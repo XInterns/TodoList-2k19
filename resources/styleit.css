@@ -88,6 +88,7 @@ ul li{
 .todo{
     display: inline-block;
     flex-grow: 5;
+    padding: 0.4em 0.4em;
     /* width: 16em;  responsiveness not observed ~ type of hard-code*/
 }
 
@@ -140,6 +141,7 @@ ul li{
 }
 
 #ShowAll{
+    display: flex;
     flex-grow: 1;
     padding: 0em;
 }
