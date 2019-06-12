@@ -2,19 +2,21 @@ let displaytodos = [];
 
 const templates = {
     todo: ({ name, completed }, index) => {
+
         return `<li class="${completed ? 'todos' : 'todos'}">
+            <label for="checktodo"></label>
+            <i onclick="toggleCheckbox(${index})" class="${completed ? 'far fa-check-circle' : 'far fa-circle'}"></i>
             <input type="checkbox" class="checktodo" name="taskcheck">
-            <i class="${completed ? 'far fa-check-circle' : 'far fa-circle'}"></i>
             <div class="todo">
                 ${name}
             </div>
-        <button class="cross" onclick="removetodo(${index})" id="${index}">X</button>`
+        <button class="cross" onclick="removetodos(${index})">X</button>`
     }
 }
 
 const renderElements = {
     renderTodoList: (todoList) => {
-        const todosHTML = todoList.map((todo) => templates.todo(todo));
+        const todosHTML = todoList.map((todo, index) => templates.todo(todo, index));
         document.getElementById('tasks').innerHTML = todosHTML.join('');
     },
     renderItemsLeft: (itemsRemaining) => {
@@ -55,17 +57,24 @@ const fetchtodos = (isCompleted) => {
     renderElements.renderItemsLeft(countRemainingTasks(displaytodos));
 }
 
-const removetodo = (index) => {
-    //  console.log(index);
-    todoList.splice(index,1);
-    // let i = 0;
-    //     console.log(remove);
-    // while(todoList.length){
-    //     if(i!==remove){
-    //         displaytodos = todoList;
-    //     }
-    //     i++;
-    // }    
+const removetodos = (index) => {
+    console.log(index);
+    todoList.splice(index,1);    
+    renderElements.renderTodoList(todoList);
+    renderElements.renderItemsLeft(countRemainingTasks(todoList));
+}
+
+const toggleCheckbox = (index) => {
+     todoList[index].completed = !this.completed;
+    // console.log(index);
+    // console.dir(todoList[index]);
+    renderElements.renderTodoList(todoList);
+    renderElements.renderItemsLeft(countRemainingTasks(todoList));
+}
+// ${todoList}
+
+const addTodo = (event) => {
+    todoList.push({name: event.target.value, completed:false});
     renderElements.renderTodoList(todoList);
     renderElements.renderItemsLeft(countRemainingTasks(todoList));
 }
@@ -74,4 +83,3 @@ const filterListOfTodos = (isCompleted, todoList) => todoList.filter(({ complete
 
 const countRemainingTasks = (todoList) => filterListOfTodos(false, todoList).length;
 
-fetchtodos();
