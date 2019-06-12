@@ -114,22 +114,25 @@ function removeCompletedTasks(index){
 }
 
 function clearAllCompleted(){
-    var i=todoList.length;
-         
+    var i=todoList.length; 
         for(y=0;y<i;i=todoList.length,y++)
         {
-
-             if(todoList[y].isCompleted==true)
+             if(todoList[y].isCompleted
+                +)
              {
                   todoList.splice(y,1);
                   refreshTodosList(todoList);
                   console.log(y);
                   console.log(i);
-                //   y++;
              }
-        
-        
-        
-      
-        
     }}
+
+    
+function inputList(event){
+       //console.log(event.target.value);
+    var obj={name:event.target.value ,isCompleted:false};
+    todoList.push(obj);
+    //console.dir(todoList);
+    
+    refreshTodosList(todoList);
+}
