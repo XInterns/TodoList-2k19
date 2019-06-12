@@ -101,11 +101,13 @@ ul li{
     padding: 0;
     background-color: transparent;
     border: none;
+    opacity: 0;
 }
 
 .cross:hover {
     color: red;
     border: none;
+    opacity: 1;
   }
 
 .todos{
@@ -118,6 +120,12 @@ ul li{
     height: 2em;
 }
 
+.todoc{
+    display: inline-block;
+    flex-grow: 5;
+    padding: 0.4em 0.4em;
+    text-decoration: line-through;
+}
 
 /* action-container */
 .action-container{
