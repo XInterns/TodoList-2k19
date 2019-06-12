@@ -1,138 +1,115 @@
 let displayTodos = [];
 
 const todoList = [
+  {
+    name: "task1",
 
-    {
-        name: 'task1',
+    isCompleted: true
+  },
 
-        isCompleted: true
-    },
+  {
+    name: "task2",
 
-    {
-        name: 'task2',
+    isCompleted: false
+  },
 
-        isCompleted: false
-    },
+  {
+    name: "task3",
 
-    {
-        name: 'task3',
+    isCompleted: false
+  },
 
-        isCompleted: false
-    },
+  {
+    name: "task4",
 
-    {
-        name: 'task4',
+    isCompleted: true
+  },
 
-        isCompleted: true
-    },
+  {
+    name: "task5",
 
-    {
-
-        name: 'task5',
-
-        isCompleted: false
-
-    }
-
+    isCompleted: false
+  }
 ];
 
-const getTodos = (showCompleted) => {
+const getTodos = showCompleted => {
+  if (showCompleted == undefined) {
+    displayTodos = todoList;
+  } else {
+    displayTodos = todoList.filter(
+      ({ isCompleted }) => isCompleted === showCompleted
+    );
+  }
 
-    if (showCompleted == undefined) {
-        displayTodos = todoList;
+  refreshTodosList(displayTodos);
+};
 
-    }
-    else {
-        displayTodos = todoList.filter(({ isCompleted }) => isCompleted === showCompleted);
-
-    }
-
-    refreshTodosList(displayTodos);
-
-}
-
-const createTodoFromTemplate = ({ name, isCompleted },index) => {
-    return `<li class=${isCompleted ? 'completed' : 'todo'}>
-    <label for="check-checkbox"><i onclick="checkboxtoggle(this,${index})" class='${isCompleted ? 'far fa-check-circle' : 'fas fa-circle'}'></i></label>
+const createTodoFromTemplate = ({ name, isCompleted }, index) => {
+  return `<li class=${isCompleted ? "completed" : "todo"}>
+    <label for="check-checkbox"><i onclick="checkboxtoggle(this,${index})" class='${
+    isCompleted ? "far fa-check-circle" : "fas fa-circle"
+  }'></i></label>
     <input  id="check-checkbox" class="hide" type="checkbox"/>
     <label>${name}</label>
     <button class="remove" onclick="removeCompletedTasks(${index})"></button></li>`;
-}
+};
 
+const refreshTodosList = todoList => {
+  const todosHtml = [];
+  for (i = 0; i < todoList.length; i++) {
+    todosHtml.push(createTodoFromTemplate(todoList[i], i));
+  }
+  document.getElementById("todo-list-task").innerHTML = todosHtml.join("");
+  displayRemainingTask(todoList);
+};
 
-const refreshTodosList = (todoList) => {
-    const todosHtml = [];
-    for (i = 0; i < todoList.length; i++) {
-        todosHtml.push(createTodoFromTemplate(todoList[i], i));
-
+const displayRemainingTask = todoList => {
+  var count = 0;
+  for (i = 0; i < todoList.length; i++) {
+    if (!todoList[i].isCompleted) {
+      count++;
     }
-    document.getElementById('todo-list-task').innerHTML = todosHtml.join('');
-    displayRemainingTask(todoList);
-
-}
-
-
-
-const displayRemainingTask = (todoList) => {
-    var count = 0;
-    for (i = 0; i < todoList.length; i++) {
-
-        if (!todoList[i].isCompleted) {
-            count++;
-        }
-    }
-    document.getElementById("remaining").innerText = count + " item(s) left";
-}
+  }
+  document.getElementById("remaining").innerText = count + " item(s) left";
+};
 
 var input = document.querySelector("input[type = 'text']");
 var ul = document.querySelector("ul");
 
+function checkboxtoggle(element, index) {
+  if (element.classList == "fas fa-circle") {
+    element.classList = "far fa-check-circle";
+  } else {
+    element.classList = "fas fa-circle";
+  }
+  toggletodo(todoList, index);
+  refreshTodosList(todoList);
+}
 
-function checkboxtoggle(element,index) {
-    if (element.classList == "fas fa-circle") 
-    {
-        element.classList = "far fa-check-circle";
-        
+function toggletodo(todoList, i) {
+  todoList[i].isCompleted = todoList[i].isCompleted ? false : true;
+}
+
+function removeCompletedTasks(index) {
+  todoList.splice(index, 1);
+  refreshTodosList(todoList);
+}
+
+function clearAllCompleted() {
+  var i = todoList.length;
+  for (y = 0; y < i; i = todoList.length, y++) {
+    if (todoList[y].isCompleted) {
+      todoList.splice(y, 1);
+      refreshTodosList(todoList);
+      console.log(y);
+      console.log(i);
     }
-    else {
-        element.classList = "fas fa-circle";
-        
-    }
-    toggletodo(todoList,index);
-    refreshTodosList(todoList);
+  }
 }
 
-function toggletodo(todoList,i){
-    todoList[i].isCompleted=(todoList[i].isCompleted)?false:true;
-}
+function inputList(event) {
+  var obj = { name: event.target.value, isCompleted: false };
+  todoList.push(obj);
 
-
-
-function removeCompletedTasks(index){
-    todoList.splice(index,1);
-    refreshTodosList(todoList);
-}
-
-function clearAllCompleted(){
-    var i=todoList.length; 
-        for(y=0;y<i;i=todoList.length,y++)
-        {
-             if(todoList[y].isCompleted
-                +)
-             {
-                  todoList.splice(y,1);
-                  refreshTodosList(todoList);
-                  console.log(y);
-                  console.log(i);
-             }
-    }}
-
-    
-function inputList(event){
-       //console.log(event.target.value);
-    var obj={name:event.target.value ,isCompleted:false};
-    todoList.push(obj);
-    //console.dir(todoList);
-    
-    refreshTodosList(todoList);
+  refreshTodosList(todoList);
 }
