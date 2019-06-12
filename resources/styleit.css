@@ -127,6 +127,20 @@ ul li{
     text-decoration: line-through;
 }
 
+.fa-check-circle{
+    width: 5%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 0.4em;
+}
+
+.fa-circle{
+    width: 5%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 0.4em;
+}
+
 /* action-container */
 .action-container{
     display: flex;
@@ -138,7 +152,7 @@ ul li{
 .counter{
      flex-grow: 1;
      padding: 0em;
-     margin:0em;
+     margin:0.7em;
      font-size: small;
 }
 
@@ -146,22 +160,45 @@ ul li{
     display: flex;
     flex-grow: 2;
     font-size: x-small;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 #ShowAll{
-    display: flex;
+    /* display: flex; */
+    margin: 1.2em;
     flex-grow: 1;
     padding: 0em;
+    font-size: x-small;
+    border: none;
+    background-color: white;
 }
 
 #ShowActive{
+    margin: 1.2em;
     flex-grow: 1;
     padding: 0em;
+    font-size: x-small;
+    border: none;
+    background-color: white;
 }
 
 #ShowCompleted{
+    margin: 1.2em;
     flex-grow: 1;
     padding: 0em;
+    font-size: x-small;
+    border: none;
+    background-color: white;
+}
+
+#RemoveCompleted{
+    margin: 1.2em;
+    padding: 0;
+    /* float: right; */
+    font-size: x-small;
+    border: none;
+    background-color: white;
 }
 
 .action{
@@ -169,12 +206,11 @@ ul li{
     flex-grow: 1;
 }
 
-
 .taskboxstack{
     margin: auto;
     width: 30%;
     height: auto;
     border: 1px solid lightgrey;
     background-color: white;
-    z-index: 0;
+    z-index: 1;
 }

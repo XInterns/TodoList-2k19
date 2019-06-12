@@ -19,7 +19,7 @@ const renderElements = {
         document.getElementById('tasks').innerHTML = todosHTML.join('');
     },
     renderItemsLeft: (itemsRemaining) => {
-        document.getElementById('items-remaining').innerText = `${itemsRemaining} items left`;
+        document.getElementById('items-remaining').innerText = `${itemsRemaining} item(s) left`;
     }
 }
 
