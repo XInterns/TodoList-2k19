@@ -23,7 +23,7 @@ const renderElements = {
     }
 }
 
-var todoList = [
+const todoList = [
     {
         name: 'task1',
         completed: true
@@ -78,15 +78,20 @@ const addTodo = (event) => {
     renderElements.renderItemsLeft(countRemainingTasks(todoList));
 }
 
-const clearAllCompletedtodos = (isCompleted) => {
-     displaytodos = filterListOfTodos(isCompleted, todoList);
-        todoList = todoList.filter((todo) => {
-        return displaytodos.filter((dotodo) => {
-           return todo.name == dotodo.name;
-        }).length == 0
-     });
+const clearAllCompletedtodos = () => {
+    // convert const -> var 
+    //  displaytodos = filterListOfTodos(isCompleted, todoList);
+    //     todoList = todoList.filter((todo) => {
+    //     return displaytodos.filter((dotodo) => {
+    //        return todo.name == dotodo.name;
+    //     }).length == 0
+    //  });
     //console.dir(todoList);
-    // todoList.map((todo, index) => indexOf(displaytodos.includes(todo));
+    todoList.map((todo, index) => {
+        if(todo.completed)
+            todoList.splice(index,1);
+    })
+    console.dir(todoList);
     renderElements.renderTodoList(todoList);
     renderElements.renderItemsLeft(countRemainingTasks(todoList));
 }
