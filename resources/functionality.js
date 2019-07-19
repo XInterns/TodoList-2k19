@@ -91,7 +91,7 @@ const clearAllCompletedtodos = () => {
         if(todo.completed)
             todoList.splice(index,1);
     })
-    console.dir(todoList);
+    //console.dir(todoList);
     renderElements.renderTodoList(todoList);
     renderElements.renderItemsLeft(countRemainingTasks(todoList));
 }
